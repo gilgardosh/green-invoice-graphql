@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Mesh files
+**/generated/**
+.mesh
+
+# Local dev tests
+**/dev-tests

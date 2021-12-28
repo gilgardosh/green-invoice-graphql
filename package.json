@@ -1,0 +1,71 @@
+{
+  "name": "green-invoice-graphql",
+  "version": "0.0.9",
+  "description": "Graphql server for wrapping payper API",
+  "scripts": {
+    "lint": "eslint './src/**/*.{js,ts,tsx}' --quiet --fix",
+    "prebuild": "yarn lint && yarn generate",
+    "build": "tsc",
+    "postbuild": "yarn copy-files",
+    "copy-files": "cp -a .mesh/ dist/.mesh/",
+    "prepublish": "yarn build",
+    "mesh:serve": "mesh serve",
+    "mesh:build": "mesh build",
+    "generate": "yarn mesh:build",
+    "dev": "ts-node ./src/index.ts",
+    "start": "node ./dist",
+    "test": "ts-node ./dev-tests/e2e.ts"
+  },
+  "main": "dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilgardosh/green-invoice-graphql.git"
+  },
+  "author": "Gil Gardosh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gilgardosh/green-invoice-graphql/issues"
+  },
+  "homepage": "https://github.com/gilgardosh/green-invoice-graphql#readme",
+  "dependencies": {
+    "@graphql-mesh/cli": "0.44.5",
+    "@graphql-mesh/json-schema": "0.22.13",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.5",
+    "graphql": "16.2.0",
+    "node-fetch": "2.6.6",
+    "path": "0.12.7"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "17.0.5",
+    "@types/node-fetch": "2.5.12",
+    "@typescript-eslint/eslint-plugin": "5.8.1",
+    "@typescript-eslint/parser": "5.8.1",
+    "eslint": "8.5.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-standard": "5.0.0",
+    "prettier": "2.5.1",
+    "ts-node": "10.4.0",
+    "typescript": "4.5.4"
+  },
+  "keywords": [
+    "green invoice",
+    "greeninvoice",
+    "accounter",
+    "graphql",
+    "mesh"
+  ]
+}
