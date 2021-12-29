@@ -1,19 +1,26 @@
 sources:
-  - name: Payper
+  - name: GreenInvoice
     handler:
       jsonSchema:
         baseUrl: 'https://api.greeninvoice.co.il/api/v1'
         operationHeaders:
-          API_KEY: '{env.GREEN_INVOICE_AUTH_TOKEN}'
+          Authorization: Bearer {env.GREEN_INVOICE_AUTH_TOKEN}
           Content-Type: application/json
-          Accept: application/json
         operations:
-          - type: Query
+          - type: Mutation
             field: addExpenseByFile
             path: /expenses/file
             method: POST
             requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseByFileRequest
             responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseByFileResponse
+
+          - type: Query
+            field: getExpense
+            path: /expenses/{args.id}
+            method: GET
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/getExpenseRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/getExpenseResponse
+
 
 serve:
   browser: false

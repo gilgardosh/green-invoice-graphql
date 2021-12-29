@@ -39,6 +39,106 @@
           "type": "string"
         }
       }
+    },
+    "getExpenseRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "getExpenseResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "businessType": {
+          "type": "number",
+          "enum": [1, 2, 3, 4, 5, 6]
+        },
+        "documentType": {
+          "type": "number",
+          "enum": [20, 305, 320, 330, 400, 405]
+        },
+        "status": {
+          "type": "number",
+          "enum": [10, 20, 30, 100]
+        },
+        "paymentType": {
+          "type": "number",
+          "enum": [-1, 0, 1, 2, 3, 4, 5, 10, 11]
+        },
+        "currency": {
+          "$ref": "#/components/Currency"
+        },
+        "currencyRate": {
+          "type": "number"
+        },
+        "amountExcludeVat": {
+          "type": "number"
+        },
+        "vat": {
+          "type": "number"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "date": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "supplier": {
+          "$ref": "#/components/Supplier"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "cancellable": {
+          "type": "boolean"
+        },
+        "reportingDate": {
+          "type": "string"
+        },
+        "accountingClassification": {
+          "$ref": "#/components/AccountingClassification"
+        },
+        "amountLocal": {
+          "type": "number"
+        },
+        "amountAccounting": {
+          "type": "number"
+        },
+        "vatAccounting": {
+          "type": "number"
+        },
+        "creationDate": {
+          "type": "number"
+        },
+        "lastUpdateDate": {
+          "type": "number"
+        }
+      }
     }
   },
   "components": {
