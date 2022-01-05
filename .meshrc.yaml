@@ -8,11 +8,25 @@ sources:
           Content-Type: application/json
         operations:
           - type: Mutation
-            field: addExpenseByFile
+            field: addExpenseDraftByFile
             path: /expenses/file
             method: POST
-            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseByFileRequest
-            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseByFileResponse
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileResponse
+
+          - type: Mutation
+            field: addExpense
+            path: /expenses
+            method: POST
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseResponse
+
+          - type: Query
+            field: searchExpenseDrafts
+            path: /expenses/drafts/search
+            method: POST
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsResponse
 
           - type: Query
             field: getExpense
