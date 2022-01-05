@@ -56,6 +56,93 @@
         }
       ]
     },
+    "updateExpenseRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The expense ID"
+        },
+        "paymentType": {
+          "description": "Payment method",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": ["string", "number"],
+              "enum": ["1", "2", "3", "4", "5", "10", "11", 1, 2, 3, 4, 5, 10, 11]
+            }
+          ]
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "currencyRate": {
+          "type": "number",
+          "description": "Currency rate relative to ILS"
+        },
+        "vat": {
+          "type": "number",
+          "description": "The amount of the vat"
+        },
+        "amount": {
+          "type": "number",
+          "description": "The total amount of the expense"
+        },
+        "date": {
+          "type": "string",
+          "description": "Date of the expense"
+        },
+        "dueDate": {
+          "type": "string",
+          "description": "Due date of the expense"
+        },
+        "reportingDate": {
+          "type": "string",
+          "description": "Reporting date of the expense"
+        },
+        "documentType": {
+          "type": "number",
+          "description": "Document type",
+          "enum": [20, 305, 320, 330, 400, 405]
+        },
+        "number": {
+          "type": "string",
+          "description": "Number of the expense"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description for the expense"
+        },
+        "remarks": {
+          "type": "string",
+          "string": "Remarks for the expense"
+        },
+        "supplier": {
+          "$ref": "#/definitions/Supplier"
+        },
+        "accountingClassification": {
+          "$ref": "#/definitions/AccountingClassification"
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Is the expense active or not"
+        }
+      }
+    },
+    "updateExpenseResponse": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/GetExpense"
+        },
+        {
+          "$ref": "#/definitions/ErrorResponse"
+        }
+      ]
+    },
     "searchExpenseDraftsRequest": {
       "type": "object",
       "additionalProperties": false,
