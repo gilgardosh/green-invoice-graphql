@@ -60,7 +60,7 @@
     "mime-types": "2.1.34",
     "prettier": "2.5.1",
     "ts-node": "10.4.0",
-    "typescript": "4.5.4"
+    "typescript": "4.6.3"
   },
   "keywords": [
     "green invoice",
